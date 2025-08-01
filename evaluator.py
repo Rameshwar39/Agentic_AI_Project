@@ -2,13 +2,18 @@ from openai import OpenAI
 from prompts import get_eval_prompt, format_eval_input
 from pydantic import BaseModel
 import os
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
+DEEKSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY')
 
 class Evaluation(BaseModel):
     is_acceptable: bool
     feedback: str
 
 deepseek = OpenAI(
-    api_key=GEEKSEEK_API_KEY,
+    api_key=DEEKSEEK_API_KEY,
     base_url="https://api.deepseek.com/v1"
     )
 
