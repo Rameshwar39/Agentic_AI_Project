@@ -1,4 +1,5 @@
 from openai import OpenAI
+from dotenv import load_dotenv
 from prompts import get_chat_prompt
 import os
 
